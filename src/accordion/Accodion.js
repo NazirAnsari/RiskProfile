@@ -8,8 +8,8 @@ export default function Accodion() {
     const[data,setData]=useState(RiskData);
     return (
     <>
-    <section className="main-div">
-        <h1 className="main-div-color">Please complete the risk profile given below</h1>
+    <section className="sec">
+        <h4>Please complete the risk profile given below</h4>
       {
         data.map((curEle=>{
             return <MyAccodian key={curEle.serialNo} {...curEle}/>
