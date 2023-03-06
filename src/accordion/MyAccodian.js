@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp';
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
+import Value from './Value';
 
 export default function MyAccodian(props) {
   const [show,setShow] = useState(false); 
@@ -17,8 +18,13 @@ export default function MyAccodian(props) {
      
       {
         show &&<p className='answer'>{
-          <input type="radio" id="options" name='opt' required/>}{props.choices[0].option} <br />
-          {<input type="radio" id="options" name='opt' required/>}{props.choices[1].option}
+          // <input type="radio" id="options" name='opt' required/>}{props.choices[0].option} <br />
+          // {<input type="radio" id="options" name='opt' required/>}{props.choices[1].option}
+        props.choices.map((id)=>{
+          const {score} =id;
+          return <Value key={score} {...id}/>
+        })
+        }
           </p>
 
       }
