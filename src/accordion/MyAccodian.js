@@ -18,8 +18,7 @@ export default function MyAccodian(props) {
      
       {
         show &&<p className='answer'>{
-          // <input type="radio" id="options" name='opt' required/>}{props.choices[0].option} <br />
-          // {<input type="radio" id="options" name='opt' required/>}{props.choices[1].option}
+
         props.choices.map((id)=>{
           const {score} =id;
           return <Value key={score} {...id}/>
