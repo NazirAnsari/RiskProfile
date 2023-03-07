@@ -19,8 +19,9 @@ export default function MyAccodian(props) {
         show &&<p>{
         props.choices.map((id)=>{
           const {score} =id;
-          return <Value key={score} {...id}/>
+          return <Value key={score} show={setShow} {...id}/>
         })
+        
         }
           </p>
 
