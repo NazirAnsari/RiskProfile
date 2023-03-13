@@ -1,11 +1,10 @@
-import React from 'react'
+import React from "react";
 
-export default function Value({score,option}) {
+
+export default function Value({ score, option }) {
   return (
-    <>
-    <div className='input'>
-      <input type="radio" />{option}
+    <div className="input">
+      <input type="radio" />{option} <br />
     </div>
-    </>
-  )
+  );
 }

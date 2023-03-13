@@ -1,35 +1,41 @@
-import React, { useState } from 'react'
-import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp';
-import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
-import Value from './Value';
+import React, { useState } from "react";
+import KeyboardArrowUpIcon from "@mui/icons-material/KeyboardArrowUp";
+import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
+import Value from "./Value";
 
-export default function MyAccodian(props) {
-  const [show,setShow] = useState(false); 
+export default function MyAccodian({ data }) {
+  const[select,setSelected]=useState(null);
+
+  const toggle=(i)=>{
+      if(select===i){
+         return setSelected(null)
+      }
+
+      setSelected(i)
+  }
   return (
     <>
-      <div className="main-heading">
-      <h4 className='inner-div-question'>{props.serialNo}{". "}{props.question}
-       <span className='inner-div-icon' onClick={() => setShow(!show)}>{show ? 
-        <KeyboardArrowUpIcon/> : <KeyboardArrowDownIcon/>}</span>
-      </h4>
-        {/* <p className='inner-div-icon' onClick={() => setShow(!show)}>{show ? 
-        <KeyboardArrowUpIcon/> : <KeyboardArrowDownIcon/>}</p> */}
-        
-     
-      {
-        show &&<p className='answer'>{
+      {data.map((curEle, i) => {
+     return   <div className="container" >
+          <span className="design" >
+            {curEle.serialNo}
+            {". "}
+            {curEle.question}{" "}
+          </span>
+          <span className="arrow" onClick={()=>toggle(i)}>
+            {select===i ? <KeyboardArrowUpIcon /> : <KeyboardArrowDownIcon />}
+          </span>
 
-        props.choices.map((id)=>{
-          const {score} =id;
-          return <Value key={score} {...id}/>
-        })
-        }
-          </p>
-
-      }
-       </div>
-
-       
+          {
+            <p className={select === i ?'content show' : 'content'}>
+              {curEle.choices.map((id) => {
+                const { score } = id;
+                return <Value key={score} {...id} />;
+              })}
+            </p>
+          }
+        </div>;
+      })}
     </>
-  )
+  );
 }
