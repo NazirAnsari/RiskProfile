@@ -43,7 +43,13 @@
     color:red;
     padding-left: 10px;
   }
-  input{
+  .input{
+    font-size: .75em;
+    width:100%;
+    height:20px;
+    border-radius: 4px;
+  }
+  .data{
     font-size: .75em;
     width:100%;
     height:20px;

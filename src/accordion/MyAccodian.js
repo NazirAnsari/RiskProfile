@@ -4,22 +4,26 @@ import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 import Value from './Value';
 
 export default function MyAccodian(props) {
-  const [show,setShow] = useState(false); 
+  const [select,setselect] = useState(null);
+  const toggle=(i)=>{
+    if(select===i) setselect(null);
+    setselect(i);
+  } 
   return (
     <>
-      <div className="container">
-      <span className='design'>{props.serialNo}{". "}{props.question} </span>
-       <span className='arrow' onClick={() => setShow(!show)}>{show ? 
+
+        { props.data.map((id,i)=>{
+         
+     return <div className="container">
+      
+      <span className='design'>{id.serialNo}{". "}{id.question} </span>
+       <span className='arrow' onClick={() => toggle(i)}>{select===i ? 
         <KeyboardArrowUpIcon/> : <KeyboardArrowDownIcon/>}</span>
       
-       
-        
-     
       {
-        show &&<p>{
-        props.choices.map((id)=>{
-          const {score} =id;
-          return <Value key={score} show={setShow} {...id}/>
+         (select===i) && <p>{
+        id.choices.map((cal)=>{ 
+          return <Value key={cal.score} {...cal}/>
         })
         
         }
@@ -29,7 +33,7 @@ export default function MyAccodian(props) {
      
        </div>
 
-       
+    })}
     </>
   )
 }
