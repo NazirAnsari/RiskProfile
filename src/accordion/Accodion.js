@@ -1,23 +1,33 @@
 import React, { useState } from 'react'
 import {RiskData} from './api'
 import MyAccodian from './MyAccodian';
-import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import "./accodion.css";
+
 export default function Accodion() {
-    /* eslint-disable */
-    // const[data,setData]=useState(RiskData);
+   
     const[value,setvalue]=useState(false);
     const [data, setdata] = useState(new Set());
     const [selected,setselected]=useState(false);
-    const set=(val)=>{
-      if(!data.has(val)){
-        data.add(val);
+    const [obj,setobj]=useState({key:''});
+
+    const set=(i,val)=>{
+      if(!data.has(i)){
+        data.add(i);
         setdata(data);
+       
       }
+      setobj((preValue)=>({...preValue,[i]:val}))
       if(data.size==11){
         setselected(true);
       }
-      console.log(data);
+      console.log(obj);
+    }
+
+    const navigate=useNavigate();
+    function handleSubmit(e){
+      e.preventDefault();
+      navigate('/ThankYouPage');
     }
    
     return (
@@ -27,8 +37,6 @@ export default function Accodion() {
         
             <MyAccodian  data={RiskData} set={set}/>
        
-       
-        
           <button  className='proceedbtn' disabled={!selected} onClick={()=>(setvalue(true))}>Proceed</button>
           
     </section>
@@ -36,25 +44,25 @@ export default function Accodion() {
       
     {value && 
    
-      <div className='popup'>
+      <form className='popup'  onSubmit={handleSubmit}>
       <div>
       <label htmlFor="name">Name</label><br />
-      <input type="text" className="data" />
+      <input type="text" className="data" required/>
       </div>
      
       <div>
       <label htmlFor="email">Email</label> <br />
-      <input type="email" className="data" />
+      <input type="email" className="data" required/>
       </div>
 
       <div>
       <label htmlFor="Mobile">Mobile</label><br />
-      <input type="tel" className="data"/>
+      <input type="tel" className="data" required/>
       </div>
-      <Link to="/ThankYouPage">
+      
       <button type='submit'>Submit</button> <br />
-      </Link>
-      </div>
+      
+      </form>
       }
       
     </>
