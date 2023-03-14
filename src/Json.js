@@ -18,7 +18,7 @@ export const riskJsonData =[
                 "option": "Less than 30 Years"
             },
             {
-                "score": "5",
+                "score": 5,
                 "option": "hi"
             }
         ],

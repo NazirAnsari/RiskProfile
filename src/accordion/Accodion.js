@@ -7,18 +7,32 @@ export default function Accodion() {
     /* eslint-disable */
     // const[data,setData]=useState(RiskData);
     const[value,setvalue]=useState(false);
+    const [data, setdata] = useState(new Set());
+    const [selected,setselected]=useState(false);
+    const set=(val)=>{
+      if(!data.has(val)){
+        data.add(val);
+        setdata(data);
+      }
+      if(data.size==11){
+        setselected(true);
+      }
+      console.log(data);
+    }
+   
     return (
     <>
     <section className={`sec ${value && 'cont'}`}>
         <h4>Please complete the risk profile given below</h4>
         
-            <MyAccodian  data={RiskData}/>
+            <MyAccodian  data={RiskData} set={set}/>
        
        
         
-          <button  className='proceedbtn' onClick={()=>(setvalue(true))}>Proceed</button>
+          <button  className='proceedbtn' disabled={!selected} onClick={()=>(setvalue(true))}>Proceed</button>
           
     </section>
+    
       
     {value && 
    
@@ -42,6 +56,7 @@ export default function Accodion() {
       </Link>
       </div>
       }
+      
     </>
   )
 }

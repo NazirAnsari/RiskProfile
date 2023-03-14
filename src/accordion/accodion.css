@@ -115,3 +115,9 @@ button[type='submit']{
     box-shadow: 5px 4p 6px 7px whitesmoke;
 }
 
+.show{
+    display:block;
+}
+.notshow{
+    display:none;
+}
