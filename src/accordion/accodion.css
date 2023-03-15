@@ -50,9 +50,7 @@
   }
 
 .inner-div-icon{
-
-    float: right;
-  
+    float: right; 
 }
 
 .inputPopup{
@@ -63,6 +61,7 @@
     border:1px solid  rgb(203, 203, 203);
     border-radius: 4px;
   }
+  
 .answer{
     margin-left: 30px;
 }
@@ -123,16 +122,26 @@ button[type='submit']{
 }
 
 
-.content{
-    max-height: 0;
+.content.hide{
+    /* max-height: 0; */
     display: none;
     /* overflow: hidden; */
-    transition: all 0.5s cubic-bezier(0,1,0,1)
+    /* transition: all 0.5s cubic-bezier(0,1,0,1) */
   }
 
   .content.show{
-    height: auto;
+    /* height: auto; */
     display: block;
-    max-height: 999px;
-    transition: all 0.5s cubic-bezier(0,1,0,1)
+    /* max-height: 999px;
+    transition: all 0.5s cubic-bezier(0,1,0,1) */
+  }
+
+  .submitColor{
+    text-decoration: none;
+    background-color: #00558a;
+    width: 102%;
+    margin-top: 15px;
+    color: white;
+    height:30px;
+    font-size: 1em;
   }
