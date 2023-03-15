@@ -6,14 +6,6 @@ import Value from "./Value";
 
 export default function MyAccodian({ data,set}) {
   const[select,setSelected]=useState(null);
-  // eslint-disable-next-line
-  const[arr,setArr] =useState([]);
-
-  // const [items, setItems] = useState([
-  //   { value: '' },
-  //   { value: '' },
-  //   { value: '' }
-  // ])
 
   const toggle=(i)=>{
       if(select===i){
@@ -23,28 +15,6 @@ export default function MyAccodian({ data,set}) {
       setSelected(i)
   }
 
-  // const onChange = (( value) => {
-  //   setItems(prevItems => prevItems.map((item, select) => {
-  //     return onChange !== select ? item : { value: value }
-  //   }))
-    
-  // }, [])
-
-  // const nextToggle=(i)=>{
-  //   setSelected(++i)
-  // }
-// const arrayStore = (arrS)=>{
-//  setArr({
-//   arr : arrS
-//  })
-//  console.log(arr)
-// }
-
-// let flag =false;
-
-// const checkedRadioButton = (select,data.serialNo)=>{
-
-// }
 
   return (
     <>
@@ -63,7 +33,7 @@ export default function MyAccodian({ data,set}) {
 </div>
 
           {
-            <p className={select === i ?'content show' : 'content hide'}>
+            <div className={select === i ?'content show' : 'content hide'}> 
               { curEle.choices.map((id) => {
                 const { score } = id;
     
@@ -74,7 +44,7 @@ export default function MyAccodian({ data,set}) {
               {/* <DataSave curEle={curEle}  select={select} nextToggle={nextToggle} arr={arr}/> */}
 
               
-            </p>
+            </div>
           }
         </div>;
       })}

@@ -104,7 +104,12 @@
     box-shadow: 5px 4p 6px 7px whitesmoke;
 }
 
-
+input[type='radio']{
+  margin-right: 5px;
+  position: relative;
+  top:2px;
+  accent-color:gray ;
+}
 
 button[type='submit']{
     background-color: #00558a;
@@ -131,17 +136,8 @@ button[type='submit']{
 
   .content.show{
     /* height: auto; */
+    margin-top: 8px;
     display: block;
     /* max-height: 999px;
     transition: all 0.5s cubic-bezier(0,1,0,1) */
-  }
-
-  .submitColor{
-    text-decoration: none;
-    background-color: #00558a;
-    width: 102%;
-    margin-top: 15px;
-    color: white;
-    height:30px;
-    font-size: 1em;
   }
